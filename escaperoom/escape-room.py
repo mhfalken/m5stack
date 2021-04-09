@@ -1,5 +1,5 @@
 # Michael Hansen 2021, Coding Pirates Furesø, Denmark, www.rclab.dk
-# M5Stack Core 2
+# M5Stack Core 2, Color and Light sensor, lock with code 385
 # All files in sd/ should be put in the root of an SD card 
 from m5stack import *
 from m5stack_ui import *
