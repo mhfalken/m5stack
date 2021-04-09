@@ -9,4 +9,4 @@
 * 3 digit lock (optional) (The two sensores and the cable should be in a box with this lock)
 
 ## Start game
-Insert the SD card with the files, and copy the file escape_room.py to the M5Stack and start the file. The game should now start.
+Insert the SD card with the files, and copy the file escape-room.py to the M5Stack and start the file. The game should now start.
