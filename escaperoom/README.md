@@ -10,5 +10,7 @@
 
 ## Start game
 Insert the SD card with the files, and copy the file escape-room.py to the M5Stack and start the file. The game should now start and the rest of the game is the follow the instructions on the screen and guess how to proceed. The game will take app. 5-10 minutes to solve.
+(The few texts in the game is in danish, but that should not be a problem)
 
 ## Some screenshots from the game
+<img src="images/splash.jpg" width="100"> <img src="images/puzzle.jpg" width="100"> <img src="images/color.jpg" width="100"> <img src="images/light.jpg" width="100"> <img src="images/end.jpg" width="100">
