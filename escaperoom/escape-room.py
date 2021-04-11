@@ -211,14 +211,14 @@ def ColorCmp(color1, color2):
   for i in range(3):
     c1 = color1 & 0xff
     c2 = color2 & 0xff
-    if abs(c1-c2) > 0x60:
+    if abs(c1-c2) > 0x50:
       return False
     color1 >>= 8
     color2 >>= 8
   return True
 
 def PuzzleColor_():
-  colorList = [0x0000ff, 0xff0000, 0x007f00, 0xfff800]
+  colorList = [0x1010ff, 0xff0000, 0x00c000, 0xffff00]
   #colorList = [0x0000ff] # Test
   lcd.clear()
   StatusLine(True)
@@ -278,7 +278,7 @@ def PuzzleColor_():
 
         break
     #lcd.rect(0, 220, 310, 20, 0x0, 0x0)
-    #lcd.print("%2x, %2x, %2x %i, %i" %(r, g, b, res, colorNo), 50, 220, 0xffffff)
+    #lcd.print("%2x, %2x, %2x" %(r, g, b), 50, 220, 0xffffff)
     
     StatusLine()
     wait_ms(300)
