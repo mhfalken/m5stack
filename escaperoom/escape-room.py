@@ -103,9 +103,11 @@ def Splash():
   lcd.clear()
   time.sleep(1)
   lcd.font(lcd.FONT_DejaVu40)
-  lcd.print("Escape Room", 20, 20, 0x80ff80)
+  lcd.print("Escape Room", 20, 0, 0x80ff80)
   lcd.font(lcd.FONT_DejaVu24)
-  lcd.print("Michael Hansen", 60, 100, 0xffff00)
+  lcd.print("v. 1.01", 110, 50, 0xffffff)
+  lcd.print("Michael Hansen", 60, 88, 0xffff00)
+  lcd.print("www.rclab.dk", 70, 115, 0x0000ff)
   lcd.print("Coding Pirates", 68, 150, 0xff0000)
   lcd.print("Furesoe", 110, 180, 0xff0000)
   time.sleep(2)
@@ -218,7 +220,7 @@ def ColorCmp(color1, color2):
   return True
 
 def PuzzleColor_():
-  colorList = [0x1010ff, 0xff0000, 0x00c000, 0xffff00]
+  colorList = [0x1010f0, 0xff0000, 0x00c000, 0xffff00]
   #colorList = [0x0000ff] # Test
   lcd.clear()
   StatusLine(True)
@@ -240,8 +242,6 @@ def PuzzleColor_():
       colorMod = unit.get(unit.COLOR, (32,33))
       break
     except:
-      if touch.status():
-        return
       wait_ms(100)
       continue
 
@@ -362,7 +362,7 @@ def PuzzleLight():
       if gateNo == len(lightGates):
         # Done
         fn = "done.jpg"
-        ImagesCopy(fn)
+        ImagesCopy(fn) 
         ImagesShow(fn, 115, 60)
         ImagesCleanup(fn)
         speaker.playWAV('/sd/tadar.wav', rate=44100, dataf=speaker.F16B)
@@ -378,7 +378,7 @@ def PuzzleLight():
 
 ### Main ##################
 
-Splash()
+Splash() 
 startTimeS = time.time()
 
 # Puzzles
