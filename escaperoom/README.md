@@ -14,3 +14,6 @@ Insert the SD card with the files, and copy the file escape-room.py to the M5Sta
 
 ## Some screenshots from the game
 <img src="images/splash.jpg" width="100"> <img src="images/puzzle.jpg" width="100"> <img src="images/color.jpg" width="100"> <img src="images/light.jpg" width="100"> <img src="images/end.jpg" width="100">
+
+## Demo of the game (walk through)
+https://www.youtube.com/watch?v=oaEdlZQjHWA
