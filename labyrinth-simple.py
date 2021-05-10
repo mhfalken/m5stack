@@ -62,7 +62,7 @@ def Splash():
   lcd.font(lcd.FONT_DejaVu40)
   lcd.print("Labyrint", 70, 0, 0x80ff80)
   lcd.font(lcd.FONT_DejaVu24)
-  lcd.print("v. 1.00", 110, 50, 0xffffff)
+  lcd.print("v. 1.01", 110, 50, 0xffffff)
   lcd.print("Michael Hansen", 60, 88, 0xffff00)
   lcd.print("www.rclab.dk", 70, 115, 0x0000ff)
   lcd.print("Coding Pirates", 68, 150, 0xff0000)
@@ -99,7 +99,7 @@ labyrinth1 = [
   "X X XX X",
   "X    X X",
   "XXXXXXXX",
-  (100, 50) ]
+  (100, 50, 0x0000ff) ]
 
 labyrinth2 = [
   "XXXXXXXXXXXXXXXXXXXXX",
@@ -115,7 +115,23 @@ labyrinth2 = [
   "XX    XXX X   X   X X",
   "X   X X     X   X   X",
   "XXXXXXXXXXXXXXXXXXXXX",
-  (10, 30) ]
+  (10, 30, 0xffff00) ]
+
+labyrinth3 = [
+  "XXXXXXXXXXXXXXXXXXXXX",
+  "X            X      X",
+  "XX XXXX XXXX   XXX XX",
+  "X  X    X    X X    X",
+  "X XXX XXX XX XXX XXXX",
+  "X         X    X X EX",
+  "X XXXXXXXXX XXXX X XX",
+  "X   X     X X    X  X",
+  "X X X X XXXXX XXXXX X",
+  "XXX X X X         X X",
+  "X X X X X XXXX XX X X",
+  "X     X      X X    X",
+  "XXXXXXXXXXXXXXXXXXXXX",
+  (10, 30, 0x00ff00) ]
 
 
 
@@ -148,10 +164,10 @@ def LabCheckPos(labyrinth, posX, posY, width, radius):
   return ' '
 
 def LabMain(labyrinth):
+  global startTimeS
   bgColor = 0
-  (labXOffset, labYOffset) = labyrinth[-1]
+  (labXOffset, labYOffset, labColor) = labyrinth[-1]
   labWidth = 14
-  labColor = 0xffff00
   kugleR = 5
   kugleX = labXOffset + labWidth + kugleR
   kugleY = labYOffset + labWidth + kugleR
@@ -172,7 +188,7 @@ def LabMain(labyrinth):
       x += labWidth
     y += labWidth
 
-  while not touch.status():  # Debug
+  while True: #not touch.status():  # Debug
     (x, y, z) = acc.acceleration
     x = kugleX + int(-5*x)
     y = kugleY + int(5*y)
@@ -187,6 +203,7 @@ def LabMain(labyrinth):
         lcd.font(lcd.FONT_DejaVu40)
         lcd.print("Done", 100, 200, 0x00ffff)
         time.sleep(2)
+        startTimeS += 2
         break
     StatusLine()
     time.sleep(0.01)
@@ -199,6 +216,8 @@ Splash()
 startTimeS = time.time()
 
 # Puzzles
+LabMain(labyrinth1)
 LabMain(labyrinth2)
+LabMain(labyrinth3)
 
 End()
