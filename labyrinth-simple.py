@@ -62,7 +62,7 @@ def Splash():
   lcd.font(lcd.FONT_DejaVu40)
   lcd.print("Labyrint", 70, 0, 0x80ff80)
   lcd.font(lcd.FONT_DejaVu24)
-  lcd.print("v. 1.01", 110, 50, 0xffffff)
+  lcd.print("v. 1.02", 110, 50, 0xffffff)
   lcd.print("Michael Hansen", 60, 88, 0xffff00)
   lcd.print("www.rclab.dk", 70, 115, 0x0000ff)
   lcd.print("Coding Pirates", 68, 150, 0xff0000)
@@ -174,7 +174,7 @@ def LabMain(labyrinth):
   kugleColor = 0xffffff
 
   lcd.clear()
-  StatusLine()
+  StatusLine(True)
   acc = imu.IMU()
 
   y = labYOffset
