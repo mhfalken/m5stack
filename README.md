@@ -1,2 +1,2 @@
-# m5stack
-M5Stack projects
+# M5Stack Python projekter (både Dansk og engelsk)
+
