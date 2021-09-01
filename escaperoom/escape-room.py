@@ -105,7 +105,7 @@ def Splash():
   lcd.font(lcd.FONT_DejaVu40)
   lcd.print("Escape Room", 20, 0, 0x80ff80)
   lcd.font(lcd.FONT_DejaVu24)
-  lcd.print("v. 1.01", 110, 50, 0xffffff)
+  lcd.print("v. 1.02", 110, 50, 0xffffff)
   lcd.print("Michael Hansen", 60, 88, 0xffff00)
   lcd.print("www.rclab.dk", 70, 115, 0x0000ff)
   lcd.print("Coding Pirates", 68, 150, 0xff0000)
@@ -148,7 +148,7 @@ def BtnPressed():
         for x in btnXList:
           if tx > x and tx < (x+btnSize) and ty > y and ty < (y+btnSize):
             #lcd.print("%i" %btn, 0, 0, 0xffffff)
-            speaker.playWAV('/sd/pop.wav', rate=44100, dataf=speaker.F16B)
+            speaker.playWAV('/sd/pop.wav', 44100, speaker.F16B)
             return btn
           btn += 1
     StatusLine()
@@ -189,7 +189,7 @@ def Puzzle9():
     else:
       imgNoList.insert(btn2-1, no1)
       imgNoList.insert(btn1-1, no2)
-    speaker.playWAV('/sd/click.wav', rate=44100, dataf=speaker.F16B)
+    speaker.playWAV('/sd/click.wav', 44100, speaker.F16B)
     Img9Print(img9List, imgNoList, btn1)
     Img9Print(img9List, imgNoList, btn2)
 
@@ -202,7 +202,7 @@ def Puzzle9():
         ImagesCopy(fn)
         ImagesShow(fn, 115, 60)
         ImagesCleanup(fn)
-        speaker.playWAV('/sd/tadar.wav', rate=44100, dataf=speaker.F16B)
+        speaker.playWAV('/sd/tadar.wav', 44100, speaker.F16B)
         ImagesCleanup(img9List)
         time.sleep(3)
         return
@@ -263,7 +263,7 @@ def PuzzleColor_():
     lcd.circle(160, 50, 20, color, color)
     res = ColorCmp(color, colorList[colorNo])
     if res == 1:
-      speaker.playWAV('/sd/bell.wav', rate=44100, dataf=speaker.F16B)
+      speaker.playWAV('/sd/bell.wav', 44100, speaker.F16B)
       lcd.rect(85+40*colorNo, 100, 30, 50, 0xffffff, colorList[colorNo])
       colorNo += 1
       if colorNo == len(colorList):
@@ -272,7 +272,7 @@ def PuzzleColor_():
         ImagesCopy(fn)
         ImagesShow(fn, 115, 60)
         ImagesCleanup(fn)
-        speaker.playWAV('/sd/tadar.wav', rate=44100, dataf=speaker.F16B)
+        speaker.playWAV('/sd/tadar.wav', 44100, speaker.F16B)
         time.sleep(3)
         return
 
@@ -365,7 +365,7 @@ def PuzzleLight():
         ImagesCopy(fn) 
         ImagesShow(fn, 115, 60)
         ImagesCleanup(fn)
-        speaker.playWAV('/sd/tadar.wav', rate=44100, dataf=speaker.F16B)
+        speaker.playWAV('/sd/tadar.wav', 44100, speaker.F16B)
         time.sleep(3)
         return
     lcd.circle(lastX, y, int(dia/2), 0x00ffff, 0x00ffff)
